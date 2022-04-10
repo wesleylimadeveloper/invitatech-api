@@ -3,7 +3,7 @@ const connection = require('../util/database')
 const router = express.Router()
 
 router.get('/clients', (req, res) => {
-    const sql = `SELECT client_id, client_name, client_gender, DATE_FORMAT(client_birth, '%d/%m/%Y') as client_birth FROM clients`
+    const sql = `SELECT client_id, client_name, client_gender, DATE_FORMAT(client_birth, '%d/%m/%Y') as client_birth FROM clients ORDER BY client_name`
 
     connection.query(sql, (error, results) => {
         if (!error) {
